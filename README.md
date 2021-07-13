@@ -22,7 +22,7 @@ function isHarness(name: string): boolean {
 ```
 
 ### Race type
-The same logic as above applies to identifying race type.
+The same logic as above applies to identifying race type. Example race types include mdn for a Maiden, hcap for a Handicap, grp1 for Group1.
 
 ``` typescript
 // return true if name includes Mdn otherwise false
@@ -173,6 +173,23 @@ BMP is calculated as the sum of (100 / best available to back odds) for all sele
 
 In a two horse race where both selections were $2 it would be:
 `(100/2) + (100/2) = 100%`
+
+### Delayed Races
+
+Occassionaly races will be delayed due to any random reason such as a jockey fall, ambulance not available or kangaroos on the track. If you only get all the markets once a day you may have the wrong start time for a race is a delay happens.  To alleviate from this you can reload the markets every 20 mins and you will catch any market delays as the time will have been updated.  Alternatively use the BMP < 103% method explained under "Market Start Time". 
+
+### Be careful of the market percentage for markets you bet into
+A tip to help minimise any disadvantage you may face with a market which is not formed is to not bet into a market where BMP is more than 105%.  If you are going to bet into these markets then ensure you are not taking the current price available and look to set a limit for your price.  
+
+### Understanding your Betfair Starting Price (BSP) Options
+There are a few options when it comes to placing a bet with the Betfair SP.  These include MARKET_ON_CLOSE, LIMIT_ON_CLOSE and LAPSE.
+- MARKET_ON_CLOSE will take whatever price is available at Betfair SP when the market goes in play.
+- LIMIT_ON_CLOSE allows you to set a minimum price you will accept when backing and a maximum price you will accept when laying.  You can not set a maximum when backing or a minimimum when laying as this is counter-intuitive to value.
+- LAPSE will not be cancelled when a market goes in play if it has not been matched.  
+
+### Use customerOrderRef when placing bets
+Use customerOrderRef to keep track of your bets from different models. It can be set when placing a bet through the API.
+
 
 ---
 ## Industry knowledge
