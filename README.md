@@ -14,6 +14,7 @@ Unfortunately there is no clean way to separate out gallops and harness markets 
 An example of a function to return the market type:
 
 ``` typescript
+// language: typescript
 // return true if name includes trot or pace, otherwise false
 function isHarness(name: string): boolean {
     name = name.toLowerCase();
@@ -25,6 +26,7 @@ function isHarness(name: string): boolean {
 The same logic as above applies to identifying race type. Example race types include mdn for a Maiden, hcap for a Handicap, grp1 for Group1.
 
 ``` typescript
+// language: typescript
 // return true if name includes Mdn otherwise false
 function isMaiden(name: string): boolean {
     name = name.toLowerCase();
@@ -36,6 +38,7 @@ function isMaiden(name: string): boolean {
 Equally, this is how you can identify race length.
 
 ``` typescript
+// language: typescript
 // takes in market name and returns race length 
 function raceLen(name: string): number {
     // # return race length
@@ -61,6 +64,7 @@ function raceLen(name: string): number {
 Often you want to look at the 'market favourite' in a race, which can be defined as the runner with the shorted best available to back price.
 
 ``` typescript
+// language: typescript
 // returns sorted order of selections based on best atb price
 function AtbOrder(sels: Selection[]): number[]  {
     const sorted = [ ...sels ].sort( (a, b) => {
@@ -84,6 +88,7 @@ Weighted average price is a good way of removing outlier prices and looking at t
 #### Best available to lay WAP
 
 ``` typescript
+// language: typescript
 // calculating wap across top three available to lay boxes
 function atlWap(atl0, atl1, atl2): number {
     const vol = atl0?.volume + atl1?.volume + atl2?.volume;
@@ -96,6 +101,7 @@ function atlWap(atl0, atl1, atl2): number {
 #### Best available to back WAP
 
 ``` typescript
+// language: typescript
 // calculating wap across top three available to back boxes
 function atbWap(atb0, atb1, atb2): number {
     const vol = atb0?.volume + atb1?.volume + atb2?.volume;
@@ -114,6 +120,7 @@ This is an approach to creating Kelly staking functions for back and lay stakes.
 #### Back Kelly
 
 ``` typescript
+// language: typescript
 /**
  * Kelly staking backing
  * http://www.aussportsbetting.com/2010/07/18/kelly-criterion-backing-andlaying-bets-with-betfair/
@@ -139,6 +146,7 @@ function kellyMultBack(price: number, rating: number, kellyApp: number = 1, comm
 #### Lay Kelly
 
 ``` typescript
+// language: typescript
 /**
  * Kelly staking laying
  * http://www.aussportsbetting.com/2010/07/18/kelly-criterion-backing-andlaying-bets-with-betfair/
